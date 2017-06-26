@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue2</title>
+    <style type="text/css">
+        h2 {
+            margin:0;
+            padding:0;
+        }
+        #box {
+            width:500px;
+            border:1px #000 solid;
+        }
+        .subTitle {
+            margin-right:15px;
+        }
+    </style>
+</head>
+<script src="vue.js"></script>
+<body>
+    <div id="box">
+        <h2>今日要闻</h2>
+        <ul>
+            <li v-for="item in arr">
+                <a :href='item.href'>{{item.title}}<br/></a>
+                <a class="subTitle" v-for="item in item.content" :href="item.href">{{item.title}}<br/></a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+    //创建一个vue实例对象
+    var vm = new Vue({
+        el : '#box',
+        data : {
+            arr : [
+                {title:'习近平主持召开全面深化改革领导小组会议',href:'#',content:[
+                    {title:'《习近平谈治国理政》出版发行1000天记',href:'#'},
+                    {title:'视察部队',href:'#'},
+                    {title:'砥砺奋进',href:'#'}
+                ]},
+                {title:'李克强主持党组讲座  国务院会议室变科学讲堂',href:'#',content:[
+                    {title:'全国人大常委会审议国歌法草案',href:'#'},
+                    {title:'刘云山',href:'#'},
+                    {title:'香港20年',href:'#'},
+                    {title:'东风浩荡 春满香江',href:'#'}
+                ]},
+                {title:'茂县灾区当地受损光缆和中断基站全面恢复',href:'#',content:[
+                    {title:'10遇难者身份确定',href:'#'},
+                    {title:'幸存三口入院 婴儿转入重症医学科',href:'#'}
+                ]},
+                {title:'“复兴号”有何过人之处？ 记者体验升级：帅呆',href:'#',content:[
+                    {title:'中央追逃办：3年追回3051人 追赃90.98亿',href:'#'},
+                    {title:'国办通报西安地铁问题电缆事件：个别干部失职渎职',href:'#'},
+                    {title:'蔡英文遭抗议民众怒骂“独裁女妖” 急忙取消行程',href:'#'},
+                    {title:'文在寅提议南北组队参赛奥运，朝鲜拒绝：政治在体育之上',href:'#'},
+                    {title:'英媒：哈里王子坦言曾想“逃离王室” 称王室必须变革',href:'#'}
+
+                ]}
+            ]
+        },
+        methods : {
+
+        },
+        computed : {
+
+        }
+    });
+</script>
